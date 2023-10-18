@@ -5,9 +5,11 @@ import csv
 app = Flask(__name__)
 print(__name__)
 
+
 @app.route('/')
 def home_page():
     return render_template('home.html')
+
 
 @app.route('/<string:page_name>')
 def html_page(page_name=None):
@@ -46,4 +48,8 @@ def submit_form():
             return 'Did not save to database.'
     else:
         return 'Could not submit request. Please try again!'
+
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
 
